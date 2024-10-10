@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davi Gay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        #botaoNao {
+            position: absolute;
+        }
+        #correto {
+            display: none;
+            font-size: 4rem;
+            color: green;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+            #correto {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Você acha que Davi é gay?</h1>
+
+    <button id="sim">Sim</button>
+    <button id="claro">Claro</button>
+    <button id="botaoNao">Não</button>
+
+    <div id="correto">CORRETO</div>
+
+    <script>
+        const botaoNao = document.getElementById('botaoNao');
+        const correto = document.getElementById('correto');
+
+        // Função para mostrar "CORRETO" ao clicar em "Sim" ou "Claro"
+        function mostrarCorreto() {
+            correto.style.display = 'block';
+        }
+
+        // Adiciona evento de clique para os botões "Sim" e "Claro"
+        document.getElementById('sim').addEventListener('click', mostrarCorreto);
+        document.getElementById('claro').addEventListener('click', mostrarCorreto);
+
+        // Função para mover o botão "Não"
+        botaoNao.addEventListener('mouseover', function() {
+            const x = Math.floor(Math.random() * (window.innerWidth - this.offsetWidth));
+            const y = Math.floor(Math.random() * (window.innerHeight - this.offsetHeight));
+            this.style.left = x + 'px';
+            this.style.top = y + 'px';
+        });
+    </script>
+</body>
+</html>
